@@ -117,21 +117,23 @@ function load_data() {
             console.log('data load');
             data = reader.responseText;
             data_json = JSON.parse(data);
+
+            // load keyword data
+            reader.open('get', keyword_data_path, true);
+            reader.onreadystatechange = function(){
+                console.log('keyword data load');
+                if (reader.readyState == 4) {
+                    keyword_data = reader.responseText;
+                    keyword_data_json = JSON.parse(keyword_data);
+                    // console.log(keyword_data);
+                }
+            }
+            reader.send(null);
         }
     }
     reader.send(null);
 
-    // load keyword data
-    reader.open('get', keyword_data_path, true);
-    reader.onreadystatechange = function(){
-        console.log('keyword data load');
-        if (reader.readyState == 4) {
-            keyword_data = reader.responseText;
-            keyword_data_json = JSON.parse(keyword_data);
-            // console.log(keyword_data);
-        }
-    }
-    reader.send(null);
+    
 }
 
 function submit(text) {
