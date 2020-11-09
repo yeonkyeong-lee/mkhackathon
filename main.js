@@ -95,9 +95,10 @@ function loadFile(path) {
     reader.onreadystatechange = get_data;
     reader.send(null);
 }
-function get_data() {
+function get_data(updateval) {
     if(reader.readyState==4) {
         // console.log(reder.responseText);
+        updateval = reader.responseText;
     }
 }
 /*------------------------------------------------------*/
@@ -116,18 +117,18 @@ function load_data() {
             console.log('data load');
             data = reader.responseText;
             data_json = JSON.parse(data);
+        }
+    }
+    reader.send(null);
 
-            // load keyword data
-            reader.open('get', keyword_data_path, true);
-            reader.onreadystatechange = function(){
-                console.log('keyword data load');
-                if (reader.readyState == 4) {
-                    keyword_data = reader.responseText;
-                    keyword_data_json = JSON.parse(keyword_data);
-                    console.log(keyword_data);
-                }
-            }
-            reader.send(null);
+    // load keyword data
+    reader.open('get', keyword_data_path, true);
+    reader.onreadystatechange = function(){
+        console.log('keyword data load');
+        if (reader.readyState == 4) {
+            keyword_data = reader.responseText;
+            keyword_data_json = JSON.parse(keyword_data);
+            console.log(keyword_data);
         }
     }
     reader.send(null);
