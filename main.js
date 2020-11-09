@@ -98,7 +98,7 @@ function loadFile(path) {
 }
 function get_data() {
     if(reader.readyState==4) {
-        console.log(reder.responseText);
+        // console.log(reder.responseText);
     }
 }
 /*------------------------------------------------------*/
@@ -115,6 +115,7 @@ function load_data() {
     reader.onreadystatechange = function(){
         if (reader.readyState == 4) {
             data = reader.responseText;
+            console.log(data);
         }
     }
 
@@ -122,7 +123,7 @@ function load_data() {
     reader.open('get', keyword_data_path, true);
     reader.onreadystatechange = function(){
         if (reader.readyState == 4) {
-            data = reader.responseText;
+            keyword_data = reader.responseText;
         }
     }
 
