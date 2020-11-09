@@ -39,7 +39,7 @@ body {
     width: 100%;
     height: 100%;
     color: white;
-    font-size: 52px;
+    font-size: 3.2em;
 }
 
 #form_keyword {
@@ -49,7 +49,7 @@ body {
     background-color: #ff9d0a;
     color: white;
     font-family: 'Spoqa Han Sans Bold';
-    font-size: 52px;
+    font-size: 1em;
 }
 #form_keyword:focus {
     outline: 0;
@@ -59,7 +59,7 @@ body {
     background-color: #E8E5E1;
     width: 100%;
     height: 100%;
-    font-size: 28pt;
+    font-size: 2em;
 }
 #info p {
     position: relative;
