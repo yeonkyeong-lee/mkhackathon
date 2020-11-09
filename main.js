@@ -111,6 +111,7 @@ function get_data() {
 
 function load_data() {
     // load data
+    console.log('data load');
     reader.open('get', data_path, true);
     reader.onreadystatechange = function(){
         if (reader.readyState == 4) {
