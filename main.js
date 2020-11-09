@@ -127,8 +127,10 @@ function load_data() {
                     console.log(keyword_data);
                 }
             }
+            reader.send(null);
         }
     }
+    reader.send(null);
 }
 
 function submit(text) {
