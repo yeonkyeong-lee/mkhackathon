@@ -110,16 +110,17 @@ function get_data() {
 
 function load_data() {
     // load data
-    console.log('data load');
     reader.open('get', data_path, true);
     reader.onreadystatechange = function(){
         if (reader.readyState == 4) {
+            console.log('data load');
             data = reader.responseText;
             data_json = JSON.parse(data);
 
             // load keyword data
             reader.open('get', keyword_data_path, true);
             reader.onreadystatechange = function(){
+                console.log('keyword data load');
                 if (reader.readyState == 4) {
                     keyword_data = reader.responseText;
                     keyword_data_json = JSON.parse(keyword_data);
@@ -240,7 +241,6 @@ function create_cut_point_ui(elem, cls_idx, time) {
 
 /*------- search -------*/
 function init() {
-    console.log('init');
     load_data();
     custom_select();
 
