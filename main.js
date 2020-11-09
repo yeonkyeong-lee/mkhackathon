@@ -115,7 +115,7 @@ function load_data() {
     reader.onreadystatechange = function(){
         if (reader.readyState == 4) {
             data = reader.responseText;
-            console.log(data);
+            data_json = JSON.parse(data);
         }
     }
 
@@ -124,11 +124,11 @@ function load_data() {
     reader.onreadystatechange = function(){
         if (reader.readyState == 4) {
             keyword_data = reader.responseText;
+            keyword_data_json = JSON.parse(keyword_data);
+            console.log(data_json);
         }
     }
 
-    data_json = JSON.parse(data);
-    keyword_data_json = JSON.parse(keyword_data);
 }
 
 function submit(text) {
