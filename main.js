@@ -3,6 +3,8 @@ var data_path = 'data/data.json';
 var keyword_data_path = 'data/raw/keyword2id.json'
 var data, keyword_data, data_json, keyword_data_json;
 
+var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+
 function custom_select () {
     var x, i, j, l, ll, selElmnt, a, b, c;
     /* Look for any elements with the class "custom-select": */
@@ -88,9 +90,6 @@ function closeAllSelect(elmnt) {
   }
 
 /*------------------data loader-------------------------*/
-var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
-
-
 function loadFile(path) {
     reader.open('get', path, true); 
     reader.onreadystatechange = get_data;
@@ -125,13 +124,10 @@ function load_data() {
                     keyword_data = reader.responseText;
                     keyword_data_json = JSON.parse(keyword_data);
                     console.log(keyword_data);
+                }
+            }
         }
     }
-        }
-    }
-
-    
-
 }
 
 function submit(text) {
@@ -244,6 +240,7 @@ function create_cut_point_ui(elem, cls_idx, time) {
 
 /*------- search -------*/
 function init() {
+    console.log('init');
     load_data();
     custom_select();
 
