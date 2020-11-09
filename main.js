@@ -116,18 +116,20 @@ function load_data() {
         if (reader.readyState == 4) {
             data = reader.responseText;
             data_json = JSON.parse(data);
+
+            // load keyword data
+            reader.open('get', keyword_data_path, true);
+            reader.onreadystatechange = function(){
+                if (reader.readyState == 4) {
+                    keyword_data = reader.responseText;
+                    keyword_data_json = JSON.parse(keyword_data);
+                    console.log(keyword_data);
+        }
+    }
         }
     }
 
-    // load keyword data
-    reader.open('get', keyword_data_path, true);
-    reader.onreadystatechange = function(){
-        if (reader.readyState == 4) {
-            keyword_data = reader.responseText;
-            keyword_data_json = JSON.parse(keyword_data);
-            console.log(keyword_data);
-        }
-    }
+    
 
 }
 
