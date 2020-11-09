@@ -192,6 +192,7 @@ function create_video_ui(id, date, cut_points, point_classes, video_length) {
 
     var video_date = document.createElement('div');
     video_date.classList.toggle('video_date');
+    date_str = date.substring(0,3)+ "년 " + date.substring(3,5) + "월 " + date.substring(5,7) + "일";
     video_date.innerHTML = date
 
     var ytplayer = document.createElement('iframe');
