@@ -241,27 +241,17 @@ function create_cut_point_ui(elem, cls_idx, time) {
 /*------- search -------*/
 function init() {
     load_data();
+    custom_select();
 
     search_form = document.getElementById('form_keyword');
     search_form.addEventListener('keyup', (e)=> {
         if (e.keyCode === 13) submit(search_form.value);
     });
 
-    // loadFile('data/data.json');
+    /* If the user clicks anywhere outside the select box,
+    then close all select boxes: */
+    document.addEventListener("click", closeAllSelect);
 }
-
-
-
-
-
-
-
-
-// ---------- main --------- //
-custom_select();
-/* If the user clicks anywhere outside the select box,
-then close all select boxes: */
-document.addEventListener("click", closeAllSelect);
 
 init();
 
