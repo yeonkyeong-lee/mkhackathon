@@ -125,7 +125,7 @@ function load_data() {
         if (reader.readyState == 4) {
             keyword_data = reader.responseText;
             keyword_data_json = JSON.parse(keyword_data);
-            console.log(data_json);
+            console.log(keyword_data);
         }
     }
 
