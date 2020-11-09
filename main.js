@@ -95,10 +95,10 @@ function loadFile(path) {
     reader.onreadystatechange = get_data;
     reader.send(null);
 }
-function get_data(updateval) {
+function get_data() {
     if(reader.readyState==4) {
         // console.log(reder.responseText);
-        updateval = reader.responseText;
+        // updateval = reader.responseText;
     }
 }
 /*------------------------------------------------------*/
@@ -128,7 +128,7 @@ function load_data() {
         if (reader.readyState == 4) {
             keyword_data = reader.responseText;
             keyword_data_json = JSON.parse(keyword_data);
-            console.log(keyword_data);
+            // console.log(keyword_data);
         }
     }
     reader.send(null);
